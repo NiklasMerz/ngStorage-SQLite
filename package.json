@@ -1,16 +1,16 @@
 {
   "name": "ngstorage-sqlite",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Niklas Merz",
   "licenses": [
     {
       "type": "MIT",
-      "url": "xxxxxx"
+      "url": "https://github.com/NiklasMerz/ngStorage-SQLite/blob/master/LICENSE"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "xxxxxxx"
+    "url": "https://github.com/NiklasMerz/ngStorage-SQLite"
   },
   "main": "ngStorage.js",
   "dependencies": {}
