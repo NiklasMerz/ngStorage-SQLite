@@ -13,5 +13,24 @@
     "url": "https://github.com/NiklasMerz/ngStorage-SQLite"
   },
   "main": "ngStorage.js",
-  "dependencies": {}
+  "cordova": {
+    "id": "ngstorage-sqlite",
+    "platforms": [
+      "all"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "ngstorage",
+    "sqlite",
+    "key-value",
+    "ecosystem:cordova",
+  ],
+  "bugs": {
+    "url": "https://github.com/NiklasMerz/ngStorage-SQLite/issues"
+  },
+  "dependencies": {
+    "cordova-sqlite-storage": "*"
+  }
 }

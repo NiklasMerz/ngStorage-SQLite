@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="ngstorage-sqlite"
+  version="0.0.1">
+  <name>ngStorage-SQLite</name>
+  <description>A persistent key value storage for AngularJS based on SQLite</description>
+  <license>MIT</license>
+  <keywords>cordova,plugin,sqlite,key,value</keywords>
+  <repo>https://github.com/NiklasMerz/ngStorage-SQLite</repo>
+  <issue>https://github.com/NiklasMerz/ngStorage-SQLite/issues</issue>
+
+  <js-module src="www/ngStorage.js" name="ngStorage">
+    <clobbers target="ngStorage" />
+  </js-module>
+
+  <dependency id="cordova-sqlite-storage" url="cordova-sqlite-storage"/>
+</plugin>
