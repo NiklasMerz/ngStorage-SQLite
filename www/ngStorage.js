@@ -1,17 +1,3 @@
-(function (root, factory) {
-  'use strict';
-
-  if (typeof define === 'function' && define.amd) {
-    define(['angular'], factory);
-  } else if (typeof exports === 'object') {
-    factory(require('angular'));
-    module.exports = 'ngStorage';
-  } else {
-    factory(root.angular);
-  }
-}(this , function (angular) {
-  'use strict';
-
   //SQLITE storage wrapper -> Seperate file?
   //Plugin functions as promise functions
   function openDb(options){
@@ -144,9 +130,7 @@
     }
   }
 
-  return angular.module('ngStorage', [])
-
-  .provider('$sqliteStorage', _storageProvider())
+  var ngStorageModule = angular.module('ngStorage', []).provider('$sqliteStorage', _storageProvider());
 
   function _storageProvider() {
     var providerWebStorage = isStorageSupported();
@@ -305,5 +289,3 @@
       ];
     };
   }
-
-}));
