@@ -206,17 +206,16 @@
           webStorage = isSupported || ($log.warn('SQlite plugin not available!'), {setItem: angular.noop, getItem: angular.noop, removeItem: angular.noop}),
           $storage = {
             $default: function(items) {
-              //TODO webstorage.length not set
               for (var k in items) {
                 angular.isDefined($storage[k]) || ($storage[k] = angular.copy(items[k]) );
               }
 
-              $storage.$sync();
               return $storage;
             },
             $init: async function(options){
               await webStorage.init(options);
               $storage.$sync();
+              $storage.$initDone = true;
 
               //Migrate localstorage
               if(options.copyLocalStorage == true){
@@ -229,10 +228,10 @@
                 for (var i = 0, l = localStorage.length; i < l; i++) {
                     var k = localStorage.key(i)
                     if(prefix == ""){
-                      $storage[k] = localStorage.getItem(k);
+                      $storage[k] = deserializer(localStorage.getItem(k));
                       removeItems.push(k);
                     }else if (prefix === k.slice(0, prefixLength)) {
-                      $storage[k.slice(prefixLength)] = localStorage.getItem(k);
+                      $storage[k.slice(prefixLength)] = deserializer(localStorage.getItem(k));
                       removeItems.push(k);
                     }
                 }
@@ -265,7 +264,7 @@
               var temp$storage;
 
               _debounce = null;
-              if (!angular.equals($storage, _last$storage)) {
+              if (!angular.equals($storage, _last$storage) && $storage.$initDone === true) {
                 temp$storage = angular.copy(_last$storage);
                 angular.forEach($storage, function(v, k) {
                   if (angular.isDefined(v) && '$' !== k[0] && '_' !== k[0] && k !== "length") {
