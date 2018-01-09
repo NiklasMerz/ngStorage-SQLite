@@ -1,3 +1,3 @@
-# Work-In-Progress ngStorage replacement with SQLite
+#ngStorage replacement with SQLite
 
-Use SQLite in your Cordova app with AngularJS as key value exactly like ngStorage uses localStorage ans sessionStorage.
+Use SQLite in your Cordova app with AngularJS as key value exactly like ngStorage uses localStorage and sessionStorage.
